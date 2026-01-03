@@ -48,6 +48,7 @@ Below are screenshots showcasing the core functionality of the application.
 - 🗺️ Add support for selecting multiple routes and bus stops dynamically
 - ⏱️ Improve refresh logic with smarter polling and error handling
 - 📱 Enhance mobile responsiveness and UI accessibility
+- 📟 Create physical display with hardware using ESP32 and E-ink screen
 
 ### Live Demo
 
