@@ -1,0 +1,50 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "busTrackerApplication",
+      "request": "launch",
+      "mainClass": "com.example.bustracker.busTrackerApplication",
+      "projectName": "busTracker"
+    },
+    {
+      "type": "java",
+      "name": "busTrackerToConsole",
+      "request": "launch",
+      "mainClass": "com.example.bustracker.busTrackerToConsole",
+      "projectName": "busTracker"
+    },
+    {
+      "type": "java",
+      "name": "busTrackerApplication",
+      "request": "launch",
+      "mainClass": "busTrackerApplication",
+      "projectName": "busTracker"
+    },
+    {
+      "type": "java",
+      "name": "busTrackerToConsole",
+      "request": "launch",
+      "mainClass": "busTrackerToConsole",
+      "projectName": "busTracker"
+    },
+    {
+      "type": "java",
+      "name": "busTracker",
+      "request": "launch",
+      "mainClass": "busTracker",
+      "projectName": "busTracker"
+    },
+    {
+      "type": "java",
+      "name": "busTracker",
+      "request": "launch",
+      "mainClass": "busTracker",
+      "projectName": "busTracker_7f9e8e1c"
+    }
+  ]
+}
