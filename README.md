@@ -1,27 +1,31 @@
 ## Bus Tracker | Full-Stack Web Application
 
-Bus Tracker is a real-time web application that allows the user to view live bus arrival and tracking information using the OneBusAway API. The backend is built with Spring Boot and exposes REST endpoints, while the frontend provides a simple, responsive interface for interacting with transit data. The tracker is easily scalable to display as many arrivals, different stops, and different bus routes as provided by the OneBusAway API. For fun I also displayed the data in the console with the busTrackerToConsole.java file.
+Bus Tracker is a real-time web application that displays live bus arrival and tracking information using the OneBusAway API. The backend is built with Spring Boot and exposes RESTful endpoints, while the frontend provides a clean, responsive interface for interacting with transit data. The application is designed to be easily scalable to support multiple stops, routes, and arrival feeds.
 
-This is my first project ever! I built this project with the sole purpose of using it for the Route 45 bus stop that I take to and from the University of Washington every morning. I was sick and tired of having to pull out my phone, going to the OneBusAway app, and then navigating to my singular Route 45 bus stop only to see that the next bus is arriving NOW while I'm still getting dressed with a bagel halfway in my mouth. I was tired of being late to school so I built this to help increase my quality of life! It was a fun project and there are a few more things that I would like to implement like a weather display that will tell me what to wear depending on the temperature outside.
+This is my first project outside of school ever! Bus Tracker was built to solve a real-world problem I encountered daily while commuting on the Route 45 outside my house to the University of Washington. I wanted a faster, more focused way to view arrival times for my regular bus route without the frills and tediousness of navigating a full transit app. This became my first end-to-end software project and an opportunity to explore full-stack development, API integration, and deployment workflows while also improving my life.
 
 The project is designed to demonstrate full-stack development concepts, including RESTful APIs, frontend–backend integration, and deployment using GitHub Pages.
 
 ### Features
-- Real-time bus arrival and ETA according to API server-time
-- Manual and automatic (60 seconds) refresh options
-- Clean, responsive user interface
-- RESTful API built with Spring Boot
-- Static frontend deployed via GitHub Pages
 
-### Tech Stack
+- 🚌 Real-time bus arrival times and ETAs based on API server time
+- 🔄 Manual and automatic (60-second) refresh options
+- 💻 Clean, responsive user interface
+- 🔌 RESTful API built with Spring Boot
+- 🌐 Static frontend deployed via GitHub Pages
+- 🖥️ Optional console-based output using `busTrackerToConsole.java`
+
+### Technologies & Tools
+
 - **Backend:** Java, Spring Boot
 - **Frontend:** HTML, CSS, JavaScript
 - **API:** OneBusAway REST API
-- **Deployment:** GitHub Pages (frontend), local Spring Boot server (backend)
+- **Deployment:** GitHub Pages (frontend), Spring Boot server (local backend)
 
 ### What I Learned
+
 - How to structure a Spring Boot application to cleanly separate API and frontend concerns
-- Best practices for serving static resources and debugging 404 routing issues
+- Access and parse JSON from API to use as data for application
 - Managing multiple deployment targets (local backend vs. GitHub Pages frontend)
 - Designing user-facing features around real-time data constraints
 
@@ -30,22 +34,34 @@ The project is designed to demonstrate full-stack development concepts, includin
 Below are screenshots showcasing the core functionality of the application.
 
 #### Main Tracker View
+
 ![Main Tracker View](docs/screenshots/trackerHome.png)
 
 #### Auto-Refresh
+
 ![Auto Refresh Enabled](docs/screenshots/trackerRefresh.png)
 
+### Planned Improvements
+
+- ☁️ Deploy the Spring Boot backend to Render.com for full production support
+- 🌦️ Integrate a weather API to display clothing recommendations based on temperature
+- 🗺️ Add support for selecting multiple routes and bus stops dynamically
+- ⏱️ Improve refresh logic with smarter polling and error handling
+- 📱 Enhance mobile responsiveness and UI accessibility
+
 ### Live Demo
+
 🔗 https://noahn06.github.io/busTracker/
 
 ### Running Locally
+
 1. Clone the repository
 2. Obtain API key by emailing oba_api_key@soundtransit.org with name, email and agreement to terms of use
 3. Put API key into .env file as API_KEY=API KEY
-4. Open repo with any IDE
-5. Navigate to -> src\main\java\com\example\bustracker\busTrackerApplication.java 
+4. Open repo with preferred IDE
+5. Navigate to: src\main\java\com\example\bustracker\busTrackerApplication.java
 6. Hit Run
 7. Open `http://localhost:8080` in your browser
 8. Witness the real-time Route 45 arrivals outside of my house!
 
-WEB BASED BUS TRACKER NON-FUNCTIONAL, NEED TO GET BACKEND SERVER TO HOST API REQUESTS
+🚧 **Current Status:** The web-based version of Bus Tracker is temporarily non-functional due to the backend not being hosted publicly. I am actively working on deploying the Spring Boot backend using Render.com so API requests can be served reliably in production. 🚀
