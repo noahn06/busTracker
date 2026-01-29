@@ -137,7 +137,8 @@ public class busController {
 
     private String timeToString(long millisToTime) {
         Instant instant = Instant.ofEpochMilli(millisToTime);
-        LocalDateTime time = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+        // Use Pacific timezone explicitly (Seattle) so times are correct on any server
+        LocalDateTime time = LocalDateTime.ofInstant(instant, ZoneId.of("America/Los_Angeles"));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
         return time.format(formatter);
     }
