@@ -6,6 +6,9 @@ COPY pom.xml .
 COPY .mvn .mvn
 COPY mvnw .
 
+# Make mvnw executable (needed because Windows doesn't preserve Linux permissions)
+RUN chmod +x mvnw
+
 RUN ./mvnw dependency:go-offline
 
 COPY src ./src
