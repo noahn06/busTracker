@@ -10,6 +10,7 @@ This is my first project outside of school ever! Bus Tracker was built to solve 
 - 🔄 Manual and automatic (60-second) refresh options
 - 💻 Clean, responsive user interface
 - 🔌 RESTful API built with Spring Boot
+- 🌦️ Integrated OpenMeteo API to display temperature and weather condition per hour
 - 🐳 Containerized with Docker for easy deployment
 - 🖥️ Optional console-based output using `busTrackerToConsole.java`
 
@@ -37,14 +38,12 @@ Below are screenshots showcasing the core functionality of the application.
 
 ![Main Tracker View](screenshots/trackerHome.png)
 
-#### Auto-Refresh
+#### Main Panel
 
-![Auto Refresh Enabled](screenshots/trackerRefresh.png)
+![Panel with arrivals and weather](screenshots/trackerRefresh.png)
 
 ### Planned Improvements
 
-- ✅ Deploy the Spring Boot backend to Render.com for full production support
-- 🌦️ Integrate a weather API to display clothing recommendations based on temperature
 - 🗺️ Add support for selecting multiple routes and bus stops dynamically
 - ⏱️ Improve refresh logic with smarter polling and error handling
 - 📱 Enhance mobile responsiveness and UI accessibility
