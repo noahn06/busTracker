@@ -4,7 +4,7 @@ Bus Tracker is a real-time web application that displays live bus arrival and tr
 
 This is my first project outside of school ever! Bus Tracker was built to solve a real-world problem I encountered daily while commuting on the Route 45 outside my house to the University of Washington. I wanted a faster, more focused way to view arrival times for my regular bus route without the frills and tediousness of navigating a full transit app. This became my first end-to-end software project and an opportunity to explore full-stack development, API integration, and deployment workflows while also improving my life.
 
-The project is designed to demonstrate full-stack development concepts, including RESTful APIs, frontend–backend integration, and deployment using GitHub Pages.
+The project is designed to demonstrate full-stack development concepts, including RESTful APIs, Docker, frontend–backend integration, and deployment using GitHub Pages and Render.
 
 ### Features
 
@@ -28,6 +28,7 @@ The project is designed to demonstrate full-stack development concepts, includin
 - Access and parse JSON from API to use as data for application
 - Managing multiple deployment targets (local backend vs. GitHub Pages frontend)
 - Designing user-facing features around real-time data constraints
+- How to deploy S to Render.com
 
 ### Screenshots
 
@@ -43,7 +44,6 @@ Below are screenshots showcasing the core functionality of the application.
 
 ### Planned Improvements
 
-- ☁️ Deploy the Spring Boot backend to Render.com for full production support
 - 🌦️ Integrate a weather API to display clothing recommendations based on temperature
 - 🗺️ Add support for selecting multiple routes and bus stops dynamically
 - ⏱️ Improve refresh logic with smarter polling and error handling
@@ -52,7 +52,7 @@ Below are screenshots showcasing the core functionality of the application.
 
 ### Live Demo
 
-🔗 https://noahn06.github.io/busTracker/
+🔗 https://bustracker-sgyt.onrender.com/
 
 ### Running Locally
 
@@ -64,5 +64,3 @@ Below are screenshots showcasing the core functionality of the application.
 6. Hit Run
 7. Open `http://localhost:8080` in your browser
 8. Witness the real-time Route 45 arrivals outside of my house!
-
-🚧 **Current Status:** The web-based version of Bus Tracker is temporarily non-functional due to the backend not being hosted publicly. I am actively working on deploying the Spring Boot backend using Render.com so API requests can be served reliably in production. 🚀
