@@ -4,6 +4,7 @@ let secondsRemaining = 60;
 
 loadBuses();
 toggleAutoRefresh();
+loadWeather();
 
 function loadBuses() {
   document.getElementById("output").innerHTML = "Loading...";
@@ -45,6 +46,62 @@ function displayBuses(data) {
   }
 
   document.getElementById("output").innerHTML = output;
+}
+
+
+
+function loadWeather() {
+  document.getElementById("weather-bar").innerHTML = "Loading weather...";
+
+  fetch("/api/weather")
+    .then((response) => response.json())
+    .then((data) => {
+      displayWeather(data);
+    })
+    .catch((error) => {
+      document.getElementById("weather-bar").innerHTML = "Error loading weather";
+      console.error("Weather error:", error);
+    });
+}
+
+function displayWeather(data) {
+  let output = "";
+
+  const currentHour = new Date().getHours();
+
+  data.hourly.forEach((hour) => {
+    const hourNum = parseInt(hour.time.split("T")[1].split(":")[0]);
+
+    const isPast = hourNum < currentHour;
+
+    const time12hr = convertTo12Hour(hour.time);
+
+    output += '<div class="weather-hour' + (isPast ? ' past' : '') + '">';
+    output += "/////////////////\n";
+    output += " " + time12hr + "\n";
+    output += "  Temp: " + Math.round(hour.temperature) + "°F\n";
+    output += "  Feels: " + Math.round(hour.feelsLike) + "°F\n";
+    output += "  Rain Prob: " + hour.precipProbability + "%\n";
+    output += "  Rain: " + hour.precipitation + " in\n";
+    output += "/////////////////\n";
+    output += "</div>";
+  });
+
+  document.getElementById("weather-bar").innerHTML = output;
+}
+
+function convertTo12Hour(timeString) {
+  const hour24 = parseInt(timeString.split("T")[1].split(":")[0]);
+
+  if (hour24 === 0) {
+    return "12 AM";
+  } else if (hour24 < 12) {
+    return hour24 + " AM";
+  } else if (hour24 === 12) {
+    return "12 PM";
+  } else {
+    return (hour24 - 12) + " PM";
+  }
 }
 
 function resetCountdown() {

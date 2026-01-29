@@ -1,5 +1,5 @@
-com\example\bustracker\busTrackerApplication.class
-com\example\bustracker\BusResponse.class
 com\example\bustracker\busController.class
 com\example\bustracker\busTrackerToConsole.class
+com\example\bustracker\busTrackerApplication.class
 com\example\bustracker\BusArrival.class
+com\example\bustracker\BusResponse.class

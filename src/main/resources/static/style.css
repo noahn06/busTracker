@@ -47,14 +47,13 @@ nav a {
 nav a:hover {
   background: #0e639c;
   border-radius: 3px;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 nav a.active {
   background: #0e639c;
   border-radius: 3px;
   text-decoration: none;
-
 }
 
 .container {
@@ -167,4 +166,62 @@ footer {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* ============================================ */
+/* WEATHER SECTION STYLES                       */
+/* ============================================ */
+
+.weather-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.weather-section h2 {
+  color: #4ec9b0;
+  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+}
+
+/* Horizontal scrollable container for 24 hours */
+.weather-bar {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+/* Each hour block - Rudimentary Style */
+.weather-hour {
+  color: #d4d4d4;
+  white-space: pre-wrap;
+  /* Preserves newlines and spacing */
+  background: #1e1e1e;
+  /* Slight contrast from background */
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  flex-shrink: 0;
+  font-family: 'Courier New', monospace;
+  /* Ensure monospace align */
+}
+
+/* Dim past hours */
+.weather-hour.past {
+  opacity: 0.4;
+}
+
+/* Hide scrollbar but keep functionality */
+.weather-bar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.weather-bar::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.weather-bar::-webkit-scrollbar-thumb {
+  background: #0e639c;
+  border-radius: 4px;
 }
