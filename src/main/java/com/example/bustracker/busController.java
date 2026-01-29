@@ -1,4 +1,5 @@
 package com.example.bustracker;
+
 import org.springframework.web.bind.annotation.*;
 import org.json.JSONObject;
 import org.json.JSONArray;
@@ -14,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import io.github.cdimascio.dotenv.Dotenv;
 
-
 @RestController
 @CrossOrigin(origins = "*")
 public class busController {
@@ -26,17 +26,22 @@ public class busController {
     public BusResponse getBuses() {
         String url = linkBuilder();
         String apiData = fetchAPIData(url);
-        
+
         if (apiData.isEmpty()) {
             return new BusResponse("Error", new ArrayList<>());
         }
-        
+
         return fetchAndDisplayRouteData(apiData);
     }
 
     private String linkBuilder() {
-        Dotenv dotenv = Dotenv.load();
-        String apiKey = dotenv.get("API_KEY");
+        String apiKey = System.getenv("API_KEY");
+
+        // if apikey not found on render, refer back to local api key in .env
+        if (apiKey == null) {
+            Dotenv dotenv = Dotenv.load();
+            apiKey = dotenv.get("API_KEY");
+        }
 
         String url = "https://api.pugetsound.onebusaway.org/api/where/";
         url += "arrivals-and-departures-for-stop/";
@@ -52,10 +57,10 @@ public class busController {
             HttpClient client = HttpClient.newHttpClient();
 
             HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .timeout(java.time.Duration.ofSeconds(10))
-                .GET()
-                .build();
+                    .uri(URI.create(url))
+                    .timeout(java.time.Duration.ofSeconds(10))
+                    .GET()
+                    .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
@@ -88,8 +93,8 @@ public class busController {
             String serverTime = timeToString(currentTimeMillis);
 
             JSONArray arrivals = root.getJSONObject("data")
-                                     .getJSONObject("entry")
-                                     .getJSONArray("arrivalsAndDepartures");
+                    .getJSONObject("entry")
+                    .getJSONArray("arrivalsAndDepartures");
 
             List<BusArrival> busList = new ArrayList<>();
 
@@ -99,7 +104,7 @@ public class busController {
 
             int displayCount = 0;
             int arrivalsIndex = 0;
-            
+
             while (displayCount < NUM_OF_ARRIVALS && arrivalsIndex < arrivals.length()) {
                 JSONObject arrivingBus = arrivals.getJSONObject(arrivalsIndex);
 
@@ -111,7 +116,7 @@ public class busController {
                 }
 
                 int minsTillArrival = (int) ((arrivalTimeMillis - currentTimeMillis) / 60000);
-                
+
                 if (minsTillArrival >= 0) {
                     String routeShortName = arrivingBus.getString("routeShortName");
                     String stringETA = timeToString(arrivalTimeMillis);
@@ -123,7 +128,7 @@ public class busController {
             }
 
             return new BusResponse(serverTime, busList);
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             return new BusResponse("Error parsing data", new ArrayList<>());

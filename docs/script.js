@@ -8,7 +8,7 @@ toggleAutoRefresh();
 function loadBuses() {
   document.getElementById("output").innerHTML = "Loading...";
 
-  fetch("/api/buses")
+  fetch("https://bustracker-sgyt.onrender.com/api/buses")
     .then((response) => response.json())
     .then((data) => {
       displayBuses(data);
