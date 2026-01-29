@@ -41,17 +41,20 @@ nav a {
   color: #d4d4d4;
   text-decoration: none;
   padding: 5px 10px;
-  transition: background 0.3s;
+  transition: ease 0.3s;
 }
 
 nav a:hover {
   background: #0e639c;
   border-radius: 3px;
+  text-decoration: none;
 }
 
 nav a.active {
   background: #0e639c;
   border-radius: 3px;
+  text-decoration: none;
+
 }
 
 .container {

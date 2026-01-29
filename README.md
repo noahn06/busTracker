@@ -4,15 +4,13 @@ Bus Tracker is a real-time web application that displays live bus arrival and tr
 
 This is my first project outside of school ever! Bus Tracker was built to solve a real-world problem I encountered daily while commuting on the Route 45 outside my house to the University of Washington. I wanted a faster, more focused way to view arrival times for my regular bus route without the frills and tediousness of navigating a full transit app. This became my first end-to-end software project and an opportunity to explore full-stack development, API integration, and deployment workflows while also improving my life.
 
-The project is designed to demonstrate full-stack development concepts, including RESTful APIs, frontend–backend integration, and deployment using GitHub Pages.
-
 ### Features
 
 - 🚌 Real-time bus arrival times and ETAs based on API server time
 - 🔄 Manual and automatic (60-second) refresh options
 - 💻 Clean, responsive user interface
 - 🔌 RESTful API built with Spring Boot
-- 🌐 Static frontend deployed via GitHub Pages
+- 🐳 Containerized with Docker for easy deployment
 - 🖥️ Optional console-based output using `busTrackerToConsole.java`
 
 ### Technologies & Tools
@@ -20,13 +18,15 @@ The project is designed to demonstrate full-stack development concepts, includin
 - **Backend:** Java, Spring Boot
 - **Frontend:** HTML, CSS, JavaScript
 - **API:** OneBusAway REST API
-- **Deployment:** GitHub Pages (frontend), Spring Boot server (local backend)
+- **Containerization:** Docker
+- **Deployment:** Render.com
 
 ### What I Learned
 
 - How to structure a Spring Boot application to cleanly separate API and frontend concerns
 - Access and parse JSON from API to use as data for application
-- Managing multiple deployment targets (local backend vs. GitHub Pages frontend)
+- Containerizing applications with Docker
+- Deploying full-stack applications to cloud platforms (Render)
 - Designing user-facing features around real-time data constraints
 
 ### Screenshots
@@ -35,15 +35,15 @@ Below are screenshots showcasing the core functionality of the application.
 
 #### Main Tracker View
 
-![Main Tracker View](docs/screenshots/trackerHome.png)
+![Main Tracker View](screenshots/trackerHome.png)
 
 #### Auto-Refresh
 
-![Auto Refresh Enabled](docs/screenshots/trackerRefresh.png)
+![Auto Refresh Enabled](screenshots/trackerRefresh.png)
 
 ### Planned Improvements
 
-- ☁️ Deploy the Spring Boot backend to Render.com for full production support
+- ✅ Deploy the Spring Boot backend to Render.com for full production support
 - 🌦️ Integrate a weather API to display clothing recommendations based on temperature
 - 🗺️ Add support for selecting multiple routes and bus stops dynamically
 - ⏱️ Improve refresh logic with smarter polling and error handling
@@ -52,17 +52,30 @@ Below are screenshots showcasing the core functionality of the application.
 
 ### Live Demo
 
-🔗 https://noahn06.github.io/busTracker/
+🔗 https://bustracker-sgyt.onrender.com
 
 ### Running Locally
 
 1. Clone the repository
 2. Obtain API key by emailing oba_api_key@soundtransit.org with name, email and agreement to terms of use
-3. Put API key into .env file as API_KEY=API KEY
-4. Open repo with preferred IDE
-5. Navigate to: src\main\java\com\example\bustracker\busTrackerApplication.java
-6. Hit Run
-7. Open `http://localhost:8080` in your browser
-8. Witness the real-time Route 45 arrivals outside of my house!
+3. Put API key into .env file as `API_KEY=your_api_key_here`
+4. Run with Maven: `mvn spring-boot:run`
+5. Open `http://localhost:8080` in your browser
+6. Witness the real-time Route 45 arrivals outside of my house!
 
-🚧 **Current Status:** The web-based version of Bus Tracker is temporarily non-functional due to the backend not being hosted publicly. I am actively working on deploying the Spring Boot backend using Render.com so API requests can be served reliably in production. 🚀
+### Project Structure
+
+```
+busTracker/
+├── src/main/
+│   ├── java/com/example/bustracker/   # Java backend code
+│   │   ├── busTrackerApplication.java # Main Spring Boot app
+│   │   ├── busController.java         # REST API controller
+│   │   └── busTrackerToConsole.java   # Console output version
+│   └── resources/
+│       ├── static/                    # Frontend files (HTML, CSS, JS)
+│       └── application.properties     # Spring Boot config
+├── Dockerfile                         # Docker configuration
+├── pom.xml                            # Maven dependencies
+└── .env                               # API key (not committed)
+```
