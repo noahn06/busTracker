@@ -4,7 +4,7 @@ Bus Tracker is a real-time web application that displays live bus arrival and tr
 
 This is my first project outside of school ever! Bus Tracker was built to solve a real-world problem I encountered daily while commuting on the Route 45 outside my house to the University of Washington. I wanted a faster, more focused way to view arrival times for my regular bus route without the frills and tediousness of navigating a full transit app. This became my first end-to-end software project and an opportunity to explore full-stack development, API integration, and deployment workflows while also improving my life.
 
-The project is designed to demonstrate full-stack development concepts, including RESTful APIs, Docker, frontend–backend integration, and deployment using GitHub Pages and Render.
+The project is designed to demonstrate full-stack development concepts, including RESTful APIs, Docker, frontend–backend integration, and deployment Render.
 
 ### Features
 
@@ -12,7 +12,7 @@ The project is designed to demonstrate full-stack development concepts, includin
 - 🔄 Manual and automatic (60-second) refresh options
 - 💻 Clean, responsive user interface
 - 🔌 RESTful API built with Spring Boot
-- 🌐 Static frontend deployed via GitHub Pages
+- 🌐 Front and back end displayed via Render.com
 - 🖥️ Optional console-based output using `busTrackerToConsole.java`
 
 ### Technologies & Tools
@@ -28,7 +28,7 @@ The project is designed to demonstrate full-stack development concepts, includin
 - Access and parse JSON from API to use as data for application
 - Managing multiple deployment targets (local backend vs. GitHub Pages frontend)
 - Designing user-facing features around real-time data constraints
-- How to deploy S to Render.com
+- How to deploy to Render.com
 
 ### Screenshots
 
